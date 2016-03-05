@@ -186,11 +186,46 @@
 			// 提示对话框关闭后的回调函数
 		}, title, "知道了" );
 	}
+	
+	/**
+	 * 常用正则判断
+	 * @param {String} title
+	 * @param {String} message
+	 */
+	owner.validator =  {
+		isTel: function (value) {
+			var patrn = /^((\+?86)|(\(\+86\)))?\d{3,4}-?\d{7,8}(-\d{3,4})?$/;
+			return patrn.test($.trim(value));
+		},
+		isMobile: function (value) {
+			var patrn = /^(13[0123456789]|147|15[012356789]|18[012356789])\d{8}$/;
+			return patrn.test($.trim(value));
+		},
+		isUserName: function(value){
+			var patrn = /^[a-zA-Z][a-zA-Z0-9_-]{2,15}$/;
+			return patrn.test($.trim(value));
+		},
+		isPassword: function(value){
+			var patrn = /^[a-zA-Z][a-zA-Z0-9_-]{5,17}$/;
+			return patrn.test($.trim(value));
+		},
+		isRealName: function(value){
+			var patrn = /^[\u2E80-\u9FFF]{2,}$/;
+			return patrn.test($.trim(value));
+		},
+		isEmail:function(value){
+			var patrn = /^[a-z\d]+(\.[a-z\d]+)*@([\da-z](-[\da-z])?)+(\.{1,2}[a-z]+)+$/;
+			return patrn.test($.trim(value));
+		},
+		isQQ:function(value){
+			var patrn = /^[1-9]d{4,9}$/;
+			return patrn.test($.trim(value));
+		}
+	}
 
 	//todo 版本更新（下载）
 	//todo 上传图片
 	//todo 裁剪图片、压缩图片
-	//todo 常用正则判断
 	//todo 日历组件
 	//todo js 数据库常用操作
 
